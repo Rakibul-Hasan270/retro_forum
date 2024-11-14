@@ -73,6 +73,11 @@
                 app. <br> The
                 integrated testing features allow for a streamlined .</p>
 
+            <!-- loader/spinner  -->
+            <div id="loading" class="mb-6 text-center hidden">
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
+
             <!-- card  -->
             <div class="md:flex justify-between">
                 <!-- 1st card  -->
@@ -113,18 +118,26 @@
                         </div>
                     </div> -->
 
-                    
+
                 </div>
                 <!-- 2nd card  -->
-                <div class="bg-slate-50 rounded-2xl p-8">
-                    <div class="flex justify-between md:gap-80">
-                        <p class="text-2xl">Title</p>
-                        <p class=""><i class="fa-solid fa-check-double"></i> Mark as read <span>(0)</span></p>
-                    </div>
+                <div>
+                    <div class="bg-slate-50 rounded-2xl">
+                        <div class="p-8">
+                            <div class="flex justify-between md:gap-80">
+                                <p class="text-2xl">Title</p>
+                                <p class=""><i class="fa-solid fa-check-double"></i> Mark as read (<span id="read-mark">0</span>)</p>
+                            </div>
 
-                    <div class="flex justify-between bg-slate-200 rounded-lg p-3 mt-4">
-                        <h3 class="text-xl md:w-4/5">10 Kids Unaware of Their Halloween Costume</h3>
-                        <p><i class="fa-regular fa-eye"></i> <span>0</span> </p>
+                            <div id="mark-read" >
+                                <!-- <div class="flex justify-between bg-slate-200 rounded-lg p-3 mt-4">
+                                    <h3 class="text-xl md:w-4/5">10 Kids Unaware of Their Halloween Costume</h3>
+                                    <p><i class="fa-regular fa-eye"></i> <span>0</span> </p>
+                                </div> -->
+
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
