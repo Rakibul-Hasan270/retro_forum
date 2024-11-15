@@ -18,7 +18,7 @@ const displayDiscuss = (data) => {
     }
 
     data.forEach(element => {
-        console.log(element);
+        // console.log(element);
 
         // Create div 
         const div = document.createElement('div');
@@ -117,4 +117,44 @@ const markAsRead = (title, view_count) => {
     markReadContainer.appendChild(div);
 }
 
+// second data load fetch 
+const latestDataLoad = async () => {
+    spinner(true);
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+    const data = await res.json();
+    displayLatestPost(data);
+}
+
+const displayLatestPost = (info) => {
+    info.forEach(element => {
+        console.log(element);
+        const latestPostContainer = document.getElementById('latestPost-container');
+        const div = document.createElement('div');
+        div.innerHTML = `
+        
+        <div class="card bg-base-100 shadow-xl p-6 bg-slate-50">
+                    <figure class="rounded-2xl mb-8">
+                        <img class="" src="${element.cover_image}" alt="" />
+                    </figure>
+                    <div class="">
+                        <p class="mb-2"><i class="fa-solid fa-calendar"></i> <span>${element?.author?.posted_date || 'No publish date'}</span></p>
+                        <h2 class="card-title mb-2">${element?.title}</h2>
+                        <p class="mb-2">${element.description}</p>
+                        <div class="flex gap-2 card-actions">
+                            <img class="h-[45px] w-[45px] rounded-full" src="${element.profile_image}" alt="">
+                            <div>
+                                <h3 class="text-xl">${element?.author?.name}</h3>
+                                <p>${element?.author?.designation || 'Unknown'}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        `;
+        latestPostContainer.appendChild(div);
+        spinner(false);
+    })
+}
+
+latestDataLoad()
 loadData();
