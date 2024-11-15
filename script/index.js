@@ -130,6 +130,7 @@ const displayLatestPost = (info) => {
         console.log(element);
         const latestPostContainer = document.getElementById('latestPost-container');
         const div = document.createElement('div');
+        div.classList.add('mb-4')
         div.innerHTML = `
         
         <div class="card bg-base-100 shadow-xl p-6 bg-slate-50">
